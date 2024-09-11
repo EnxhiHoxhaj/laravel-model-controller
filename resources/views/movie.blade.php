@@ -1,33 +1,23 @@
 @extends('layouts.main')
 
 @section('content')
-
-<div class="container">
-    <h1>Videoteca</h1>
-    <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Title</th>
-        <th scope="col">Titolo originale</th>
-        <th scope="col">Nazionalità</th>
-        <th scope="col">Data d'uscita</th>
-        <th scope="col">Voto</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach ($movie as $film)
-      <tr>
-        <th scope="row">{{$film->id}}</th>
-        <td>{{$film->title}}</td>
-        <td>{{$film->original_title}}</td>
-        <td>{{$film->nationality}}</td>
-        <td>{{$film->date}}</td>
-        <td>{{$film->vote}}</td>
-      </tr>
-      @endforeach
-    </tbody>
-  </table>
+<div class='lista'>
+  <h1>VIDEOTECA</h1>
+  <div class="cont-card d-flex">
+    @foreach ($movie as $film)
+      <div class="card dimention">
+        <div class="card-body">
+          <h5 class="card-title">Title: {{$film->title}}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Original title: {{$film->original_title}}</h6>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Nationality: {{$film->nationality}}</h6>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Release date: {{$film->date}}</h6>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Vote: {{$film->vote}}</h6>
+        </div>
+      </div>
+    @endforeach
+  </div>
 </div>
+
+
 
 @endsection
